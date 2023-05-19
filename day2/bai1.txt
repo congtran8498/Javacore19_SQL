@@ -1,0 +1,28 @@
+CREATE DATABASE quanlysinhvien;
+USE quanlysinhvien;
+CREATE TABLE tbl_sinhVien(
+    id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    tenSinhVien varchar(50) NOT NULL,
+    tuoi int NOT NULL,
+    gioiTinh int NOT NULL,
+    maLop int NOT NULL
+    );
+CREATE TABLE tbl_giaoVien(
+    id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    tenGiaoVien varchar(50) NOT NULL,
+    tuoi int NOT NULL,
+    gioiTinh int NOT NULL,
+    soNamKN int NOT NULL
+    );
+CREATE TABLE tbl_diem(
+    id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    maSV int NOT NULL,
+    diemToan int NOT NULL,
+    diemLy int NOT NULL,
+    diemHoa int NOT NULL
+    );
+INSERT INTO `tbl_sinhvien` (tenSinhVien, tuoi, gioiTinh, maLop) VALUES ('Nguyễn Anh Tuấn', 20, 1, 1), ('Phùng Tuấn Anh', 22, 1, 2), ('Trần Chí Công', 24, 1, 2), ('Phan Quang Trường', 30, 1, 2), ('Trịnh Mạnh Hà', 32, 1, 1), ('Vũ Tuấn Hải', 22, 1, 2), ('Lương Hoàng Long', 20, 1, 1), ('Ngô Gia Khánh', 25, 1, 2), ('Nguyễn Duy Hiếu', 26, 1, 1), ('Nguyễn Tài Tuyền', 22, 1, 2);
+
+INSERT INTO `tbl_giaovien` (tenGiaoVien, tuoi, gioiTinh, soNamKN) VALUES ('Phùng Văn Phú', 20, 1, 1), ('Nguyễn Duy anh', 22, 1, 2), ('Đào Xuân Việt', 24, 1, 4), ('Nguyễn Huy Bình', 30, 1, 6), ('Dang Hue', 32, 2, 10), ('Vũ Tuấn Hải', 22, 1, 8), ('Lương Hoàng Long', 20, 1, 6), ('Ngô Gia Khánh', 25, 1, 9), ('Nguyễn Duy Hiếu', 26, 1, 10), ('Nguyễn Tài Tuyền', 22, 1, 2);
+
+INSERT INTO `tbl_diem` (maSV, diemToan, diemLy, diemHoa) VALUES (1,6,7,8), (2,6,6,8), (3,7,7,8), (4,4,7,8), (5,6,9,8), (6,6,7,4), (7,6,7,3), (8,9,7,8), (9,4,7,8), (10,4,7,5);
