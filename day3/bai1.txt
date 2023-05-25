@@ -1,3 +1,58 @@
+CREATE DATABASE quanlythuctap;
+USE quanlythuctap;
+
+CREATE TABLE tbl_khoa(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    maKhoa varchar(50) NOT NULL,
+    tenKhoa varchar(50),
+    sdt int NOT NULL
+    );
+
+CREATE TABLE tbl_giangvien(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    maGV int NOT NULL,
+    tenGV varchar(50) NOT NULL,
+    luong int NOT NULL,
+   	maKhoa varchar(50) NOT NULL
+    );
+
+CREATE TABLE tbl_sinhvien(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    maSV int NOT NULL,
+    tenSV varchar(50) NOT NULL,
+    maKhoa varchar(50) NOT NULL,
+    namSinh int,
+    queQuan varchar(50)
+    );
+
+CREATE TABLE tbl_detai(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    maDT varchar(50) NOT NULL,
+    tenDT varchar(50) NOT NULL,
+    kinhPhi int NOT NULL,
+    noiThucTap varchar(50) NOT NULL
+    );
+
+CREATE TABLE tbl_huongdan(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    maSV int NOT NULL,
+    maDT varchar(50) NOT NULL,
+    maGV int NOT NULL,
+    ketQua int
+    );
+
+INSERT INTO `tbl_khoa`(maKhoa, tenKhoa, sdt) VALUES ('GEO', 'Dia ly', 3855413), ('MATH', 'Toan hoc', 3855411),('BIO', 'Cong nghe sinh hoc', 3855412);
+
+INSERT INTO `tbl_giangvien`(maGV, tenGV, luong, maKhoa) VALUES (11,'Thanh Binh',700,'GEO'), (12,'Thu Huong',500,'MATH'), (13,'Chu Vinh',650,'GEO'), (14,'Le Thi Ly',500,'BIO'), (15,'Tran Son',900,'MATH');
+
+INSERT INTO `tbl_sinhvien`(maSV, tenSv, maKhoa, namSinh, queQuan) VALUES (1,'Le Van Son','BIO',1990,'Nghe An'), (2,'Nguyen Thi Mai','GEO',1990,'Thanh Hoa'), (3,'Bui Xuan Duc','MATH',1992,'Ha Noi'), (4,'Nguyen Van Tung','BIO',null,'Ha Tinh'), (5,'Le Khanh Linh','BIO',1989,'Ha Nam'), (6,'Tran Khac Trong','GEO',1991,'Ninh Binh'), (7,'Le Hong Van','MATH',null,'null'), (8,'Hoang Anh Duc','BIO',1992,'Nghe An');
+
+INSERT INTO `tbl_detai`(maDT, tenDT, kinhPhi, noiThucTap) VALUES ('Dt01', 'GIS', 100,'Nghe An'), ('Dt02', 'ARC GIS', 500,'Vinh Phuc'), ('Dt03', 'Spatial DB', 100,'Ha Tinh'), ('Dt04', 'MAP', 300,'Quang Binh');
+
+INSERT INTO `tbl_huongdan`(maSV, maDT, maGV, ketQua) VALUES (1,'Dt01',13,8), (2,'Dt03',14,0), (3,'Dt03',12,10), (5,'Dt04',14,7), (6,'Dt01',13,null), (7,'Dt04',11,10), (8,'Dt03',15,6);
+
+
+
 1.SELECT tbl_giangvien.maGV,tbl_giangvien.tenGV,tbl_khoa.tenKhoa FROM tbl_giangvien JOIN tbl_khoa ON tbl_khoa.maKhoa = tbl_giangvien.maKhoa;
 
 2.SELECT tbl_giangvien.maGV,tbl_giangvien.tenGV,tbl_khoa.tenKhoa FROM tbl_giangvien JOIN tbl_khoa ON tbl_khoa.maKhoa = tbl_giangvien.maKhoa WHERE tbl_khoa.tenKhoa = 'Dia ly';
