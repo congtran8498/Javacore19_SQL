@@ -58,6 +58,10 @@ FROM tbl_giangvien
 JOIN tbl_khoa ON tbl_giangvien.maKhoa = tbl_khoa.id;
 
 2. Sử dụng lệnh xuất ra mã số, họ tên, tên khoa của các giảng viên hướng dẫn từ 3 sinh viên trở lên.
+SELECT tbl_giangvien.id, tbl_giangvien.hoTenGV, tbl_khoa.tenKhoa 
+FROM tbl_giangvien 
+JOIN tbl_khoa ON tbl_giangvien.maKhoa = tbl_khoa.id 
+WHERE tbl_giangvien.id IN ( SELECT maGV FROM tbl_huongdan GROUP BY maGV HAVING COUNT(*) >= 2);
 
 3. Sử dụng lệnh SQL để xuất ra thông tin về những sinh viên chưa có điểm thực tập.
 SELECT tbl_sinhvien.* 
@@ -72,6 +76,9 @@ JOIN tbl_sinhvien ON tbl_khoa.id = tbl_sinhvien.maKhoa
 WHERE tbl_sinhvien.hoTenSV = 'Le Van Son';
 
 5. Sử dụng lệnh truy vấn SQL lấy ra mã số và tên các đề tài có nhiều hơn 2 sinh viên tham gia thực tập.
+SELECT tbl_detai.id, tbl_detai.tenDT 
+FROM tbl_detai 
+WHERE tbl_detai.id IN ( SELECT maDT FROM tbl_huongdan GROUP BY maDT HAVING COUNT(id) >2);
 
 6. Sử dụng câu lệnh truy vấn SQL lấy ra mã số, tên đề tài của đề tài có kinh phí cao nhất.
 SELECT tbl_detai.id,tbl_detai.tenDT 
