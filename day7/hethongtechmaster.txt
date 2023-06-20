@@ -1,0 +1,18 @@
+Hệ Thống techmaster
+
+-Hệ thống có 3 role:sinh viên, giáo viên,admin
+-Admin :- quản lý các tài khoản của sinh viên giáo viên
+	- quản lý các khóa học(tạo khóa học)
+	- quản lý các lớp học (tạo lớp học, thêm sinh viên giáo viên vào lớp)	
+	
+-Giáo viên:
+	-Có danh sách lớp học
+	-Thêm bài giảng
+	-Điểm danh sinh viên
+	-Tạo bài tập, chấm điểm bài tập sinh viên
+	
+-Sinh viên:
+	-Có danh sách lớp học
+	-Xem bài giảng
+	-đánh giá buổi học qua các bài giảng
+	-Nộp bài tập
